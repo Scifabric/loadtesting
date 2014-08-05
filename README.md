@@ -27,8 +27,13 @@ To run a locust file run them e.g. with
 locust -f pybossa-locust/mainandprojects.py --host http://yourpybossaserver
 ```
 
-and open your browser to  
+and open the locust UI in your browser:    
 [http://localhost:8089](http://localhost:8089)
+
+To start a very simple load test set  
+users to 100  
+and  
+hatch rate to 10
 
 Start running the load test and see the result in your browser! :)
 
