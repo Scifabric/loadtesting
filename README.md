@@ -24,16 +24,16 @@ If you want to write them yourself look at the [Locust manual](http://docs.locus
 
 To run a locust file run them e.g. with
 ```
-locust -f pybossa-locust/mainandprojects.py --host --host http://yourpybossaserver
+locust -f pybossa-locust/mainandprojects.py --host http://yourpybossaserver
 ```
 
 and open your browser to  
-http://localhost:8089
+[http://localhost:8089](http://localhost:8089)
 
 Start running the load test and see the result in your browser! :)
 
 
-### Copyright / License
+## Copyright / License
 
 Copyright 2014 SF Isle of Man Limited. 
 
