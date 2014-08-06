@@ -1,1 +1,1 @@
-locustio
+https://github.com/locustio/locust/archive/master.zip
