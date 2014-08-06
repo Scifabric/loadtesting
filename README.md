@@ -16,6 +16,7 @@ Installation on a Vagrant VM is recommend because it is optimized for high load 
 
 ```
 git clone --recursive https://github.com/PyBossa/loadtesting.git
+cd loadtesting
 ```
 
 Setup the VM
@@ -42,11 +43,18 @@ locust -f pybossa-locust/mainandprojects.py --host http://yourpybossaserver
 and open the locust UI in your browser (port 9089):   
 [http://localhost:9089](http://localhost:9089)
 
+To start a very simple load test set  
+**users** to `100`  
+and  
+**hatch** rate to `10`
+
+Start running the load test and see the result in your browser! :)
 
 ### Install locally
 
 ```
 git clone --recursive https://github.com/PyBossa/loadtesting.git
+cd loadtesting
 ```
 
 > It is recommend (but of course optional) to use virtualenv: [Manual for virtualenv usage](http://virtualenv.readthedocs.org/en/latest/virtualenv.html#usage).
@@ -68,14 +76,6 @@ locust -f pybossa-locust/mainandprojects.py --host http://yourpybossaserver
 
 and open the locust UI in your browser:    
 [http://localhost:8089](http://localhost:8089)
-
-To start a very simple load test set  
-**users** to `100`  
-and  
-**hatch** rate to `10`
-
-Start running the load test and see the result in your browser! :)
-
 
 ## Copyright / License
 
