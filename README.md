@@ -10,14 +10,53 @@ The files in this repo are examples on how to write a load tester for PyBossa.
 
 ## Installation
 
+### Install on a Vagrant VM (recommend)
+
+Installation on a Vagrant VM is recommend because it is optimized for high load testing and it seems to produce more reliable results during our tests.
+
+```
+git clone --recursive https://github.com/PyBossa/loadtesting.git
+```
+
+Setup the VM
+```
+vagrant up
+```
+
+#### Do load testing with Vagrant
+
+connect to VM
+```
+vagrant ssh
+```
+and go the mapped local folder with
+```
+cd /vagrant
+```
+
+To run a locust load test file run them e.g. with
+```
+locust -f pybossa-locust/mainandprojects.py --host http://yourpybossaserver
+```
+
+and open the locust UI in your browser (port 9089):   
+[http://localhost:9089](http://localhost:9089)
+
+
+### Install locally
+
+```
+git clone --recursive https://github.com/PyBossa/loadtesting.git
+```
+
 > It is recommend (but of course optional) to use virtualenv: [Manual for virtualenv usage](http://virtualenv.readthedocs.org/en/latest/virtualenv.html#usage).
 
-### Install Locust
+#### Install Locust
 ```
 pip install -r requirements.txt
 ```
 
-### Do load testing
+#### Do load testing
 
 All available load tests are in the `pybossa-locust` folder.  
 If you want to write them yourself look at the [Locust manual](http://docs.locust.io/en/latest/index.html).

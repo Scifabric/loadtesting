@@ -1,0 +1,3 @@
+[submodule "pybossa-locust"]
+	path = pybossa-locust
+	url = https://github.com/PyBossa/pybossa-locust.git

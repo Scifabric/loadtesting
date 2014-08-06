@@ -1,3 +1,5 @@
 env/
 bin/
+crowdcrafting-locust/
 *.pyc
+.vagrant/
