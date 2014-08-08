@@ -3,10 +3,15 @@ set -ex
 apt-get update -y
 apt-get install -y python-dev python-pip git-core dnsmasq
 git config --global credential.helper cache
-# optimize TCP/IP settings
-sysctl -w net.core.somaxconn=10000
-sysctl -w net.ipv4.tcp_max_syn_backlog=10000
-# setup local DNS cache
+# optimize TCP/IP settings for massive load testing
+echo 'net.core.somaxconn=65535' >> /etc/sysctl.conf
+echo 'net.ipv4.tcp_max_syn_backlog=65535' >> /etc/sysctl.conf
+echo 'fs.file-max=65535' >> /etc/sysctl.conf
+sysctl -p
+sed -i "s/#define NR_OPEN.*/#define NR_OPEN        65536/g" /usr/include/linux/limits.h
+echo '*       soft    nofile      65536' >> /etc/security/limits.conf
+echo '*       hard    nofile      65536' >> /etc/security/limits.conf
+# setup local DNS cache: http://community.linuxmint.com/tutorial/view/489
 sed -i "s/#listen-address=/listen-address=127\.0\.0\.1/g" /etc/dnsmasq.conf
 sed -i "s/#prepend domain-name-servers 127\.0\.0\.1;/prepend domain-name-servers 127\.0\.0\.1;/g" /etc/dhcp/dhclient.conf
 sed -i "s/#require subnet-mask, domain-name-servers;/require subnet-mask, domain-name-servers;/g" /etc/dhcp/dhclient.conf
